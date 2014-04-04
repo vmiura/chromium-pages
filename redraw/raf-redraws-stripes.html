@@ -41,6 +41,9 @@
 
 
 <script type="text/javascript">
+    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+                              
     var count = 0,
         time = Date.now(),
         show_fps = true,
@@ -57,7 +60,7 @@
     }
 
     function loop() {
-        webkitRequestAnimationFrame(function() {
+        requestAnimationFrame(function() {
             if (!document.hidden)
                 update();
             loop();
